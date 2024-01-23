@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { ISpaceData } from "./DashboardTable";
-import { IMissonsStatusData, SpanData, processData, transformDataToChartSeries } from "../../utils/processData";
-import { AgChartOptions, AgHierarchySeriesOptions } from "ag-charts-community";
+import { IMissonsStatusData, SpanData, processData } from "../../utils/processData";
+import { AgChartOptions, AgSunburstSeriesOptions } from "ag-charts-community";
 import { GetCompanyList } from "./PieChart";
 import { AgChartsReact } from "ag-charts-react";
 import { Select } from "flowbite-react";
@@ -47,7 +47,7 @@ const BarChart = ({ data: missionData }: IBarCharttData) => {
     setOptions({
       ...options,
       data: chartData!,
-      series: series,
+      series: series as AgSunburstSeriesOptions[],
       subtitle: {
         text: missionStatus === "Total" ? "Total Missions" : `Missions that was ${missionStatus}`,
       },

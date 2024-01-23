@@ -3,7 +3,6 @@ import { ColDef } from "ag-grid-community";
 import { useEffect, useMemo, useState } from "react";
 import "ag-grid-community/styles/ag-grid.css"; // Core CSS
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Theme
-import { getMockData } from "../../api/api";
 
 export interface ISpaceData {
   mission: string;

@@ -47,12 +47,6 @@ const PieChart = ({ data: missionData }: IPieCharttData) => {
         legendItemKey: "type",
         calloutLabelKey: "type",
         sectorLabelKey: "count",
-        sectorLabel: {
-          color: "white",
-          fontWeight: "bold",
-          fontSize: "12px",
-          formatter: ({ value }) => `${value}`,
-        },
       },
     ],
   });
