@@ -101,7 +101,7 @@ const PieChart = ({ data: missionData }: IPieCharttData) => {
 
   return (
     <div className="flex flex-col items-center border-[1px] rounded-md bg-white">
-      <h1 className="my-3 font-medium">Company data based on Missions success rate</h1>
+      <h1 className="my-3 font-extrabold">Company data based on Missions success rate</h1>
       <div className="my-4 flex flex-col w-[300px]">
         <div className="flex items-center gap-2 justify-between">
           <p>Select Company</p>
