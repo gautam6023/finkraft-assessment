@@ -3,7 +3,6 @@ import { getMockData } from "../api/api";
 import DashboardTable, { ISpaceData } from "../components/Dashboard/DashboardTable";
 import PieChart from "../components/Dashboard/PieChart";
 import BarChart from "../components/Dashboard/BarChart";
-import { Spinner } from "flowbite-react";
 
 const Dashboard = () => {
   const [isLoading, setIsLogin] = useState<boolean>(false);
@@ -29,7 +28,7 @@ const Dashboard = () => {
   return (
     <div className="bg-slate-100">
       {isLoading ? (
-        <Spinner />
+        "Loading..."
       ) : (
         <>
           <div className="w-[100%] bg-gray-400">
