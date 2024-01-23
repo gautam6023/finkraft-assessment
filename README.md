@@ -1,30 +1,54 @@
-# React + TypeScript + Vite
+# Finkraft Assessment
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project, `finkraft-assessment`, is a web application built with React, utilizing AG Grid for data representation and TailwindCSS for styling. It demonstrates the integration of various technologies including Axios for data fetching, AG Charts for data visualization, and Vite as the build tool.
 
-Currently, two official plugins are available:
+## Prerequisites
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Before you begin, ensure you have [Node.js](https://nodejs.org/) installed on your machine. This project requires Node.js version 12.x or higher.
 
-## Expanding the ESLint configuration
+## Getting Started
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Follow these steps to get the project up and running on your local machine for development and testing purposes.
 
-- Configure the top-level `parserOptions` property like this:
+### Cloning the Repository
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+First, clone the repository to your local machine:
+
+```bash
+git clone https://github.com/gautam6023/finkraft-assessment.git
+cd finkraft-assessment
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Installing Dependencies
+
+Install the necessary dependencies by running:
+
+```bash
+npm install
+```
+
+## Running the Application
+
+To start the development server:
+
+```bash
+npm run dev
+```
+
+This will start the Vite development server. By default, the app will be available at http://localhost:5173.
+
+## Building the Application
+
+To build the application for production:
+
+```bash
+npm run build
+```
+
+## Linting
+
+To lint your code:
+
+```bash
+npm run lint
+```
