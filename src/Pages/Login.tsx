@@ -53,6 +53,8 @@ const Login = () => {
         >
           Login
         </button>
+
+        <p>Any email and password will work here because it's hardcoded, try it out</p>
       </form>
     </div>
   );
