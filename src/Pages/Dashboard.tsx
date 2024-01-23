@@ -25,7 +25,7 @@ const Dashboard = () => {
     }
   };
   return (
-    <div>
+    <div className="bg-slate-100">
       <div className="w-[100%] bg-gray-400">
         <h1 className="my-4 text-xl text-white">
           <span className="text-blue-600 font-semibold">Space Vue</span> Data

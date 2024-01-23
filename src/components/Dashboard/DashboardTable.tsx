@@ -51,9 +51,10 @@ const DashboardTable = ({ data: missionData }: IDashboardTable) => {
   );
 
   return (
-    <>
+    <div className="border-[1px] mx-4 py-4 rounded-md">
+      <h2 className="font-bold">Mission Data</h2>
       <div
-        className="ag-theme-quartz"
+        className="ag-theme-quartz p-2"
         style={{
           height: "600px",
           width: "100%",
@@ -61,7 +62,7 @@ const DashboardTable = ({ data: missionData }: IDashboardTable) => {
       >
         {data && <AgGridReact rowData={data} columnDefs={colDefs} defaultColDef={defaultColDef} animateRows={true} />}
       </div>
-    </>
+    </div>
   );
 };
 

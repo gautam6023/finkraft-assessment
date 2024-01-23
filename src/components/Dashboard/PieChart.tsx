@@ -94,19 +94,22 @@ const PieChart = ({ data: missionData }: IPieCharttData) => {
 
   return (
     <div className="flex flex-col items-center">
-      <h1 className="my-3 font-medium">Company wise Mission Success and Failures</h1>
-      <div className="w-[200px]">
-        <Select
-          id="countries"
-          value={selectedCompany}
-          onChange={(e: React.ChangeEvent<HTMLSelectElement>) => getMissionsByCompany(data, e.target.value)}
-        >
-          {companyList.map((company) => (
-            <option key={company} value={company} onClick={() => setSelectedCompany(company)}>
-              {company}
-            </option>
-          ))}
-        </Select>
+      <h1 className="my-3 font-medium">Company data based on Missions</h1>
+      <div className="my-4 flex flex-col w-[300px]">
+        <div className="flex items-center gap-2 justify-between">
+          <p>Select Company</p>
+          <Select
+            id="countries"
+            value={selectedCompany}
+            onChange={(e: React.ChangeEvent<HTMLSelectElement>) => getMissionsByCompany(data, e.target.value)}
+          >
+            {companyList.map((company) => (
+              <option key={company} value={company} onClick={() => setSelectedCompany(company)}>
+                {company}
+              </option>
+            ))}
+          </Select>
+        </div>
       </div>
       <AgChartsReact options={options} />
     </div>
