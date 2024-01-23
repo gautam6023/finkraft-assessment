@@ -1,11 +1,11 @@
 import { AgGridReact } from "ag-grid-react";
 import { ColDef } from "ag-grid-community";
-import axios from "axios";
 import { useEffect, useMemo, useState } from "react";
 import "ag-grid-community/styles/ag-grid.css"; // Core CSS
 import "ag-grid-community/styles/ag-theme-quartz.css"; // Theme
+import { getMockData } from "../../api/api";
 
-interface ISpaceData {
+export interface ISpaceData {
   mission: string;
   company: string;
   location: string;
@@ -20,9 +20,15 @@ interface CustomColDef extends ColDef {
   cellRenderer?: (params: any) => React.ReactNode;
 }
 
-const DashboardTable = () => {
+interface IDashboardTable {
+  data: ISpaceData[];
+}
+const DashboardTable = ({ data: missionData }: IDashboardTable) => {
   const [data, setData] = useState<ISpaceData[]>([]);
-  const [isLoading, setIsLogin] = useState<boolean>(false);
+
+  useEffect(() => {
+    setData(missionData);
+  }, [missionData]);
 
   // Column Definitions: Defines & controls grid columns.
   const [colDefs, _setColDefs] = useState<CustomColDef[]>([
@@ -36,10 +42,6 @@ const DashboardTable = () => {
     { field: "successful", cellRenderer: (params) => <span>{params.value ? "Yes" : "No"}</span> },
   ]);
 
-  useEffect(() => {
-    getSpaceData();
-  }, []);
-
   const defaultColDef = useMemo(
     () => ({
       sortable: true,
@@ -48,27 +50,8 @@ const DashboardTable = () => {
     []
   );
 
-  const getSpaceData = async () => {
-    setIsLogin(true);
-    try {
-      const { data: fetchedData } = (await axios.get(
-        "https://www.ag-grid.com/example-assets/space-mission-data.json"
-      )) as {
-        data: ISpaceData[];
-      };
-      setData(fetchedData);
-      setIsLogin(false);
-    } catch (err) {
-      setIsLogin(false);
-      console.log(err);
-    }
-  };
-
   return (
     <>
-      <h1 className="my-4 text-xl">
-        <span className="text-blue-600 font-semibold">Space Vue</span> data
-      </h1>
       <div
         className="ag-theme-quartz"
         style={{
