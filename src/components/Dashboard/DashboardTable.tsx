@@ -51,7 +51,7 @@ const DashboardTable = ({ data: missionData }: IDashboardTable) => {
   );
 
   return (
-    <div className="border-[1px] mx-4 py-4 rounded-md">
+    <div className="border-[1px] mx-4 py-4 rounded-md bg-white">
       <h2 className="font-bold">Mission Data</h2>
       <div
         className="ag-theme-quartz p-2"

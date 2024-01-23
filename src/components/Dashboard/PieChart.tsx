@@ -18,6 +18,21 @@ interface IChartData {
   type: string;
   count: number;
 }
+
+export function GetCompanyList(missionData: ISpaceData[]) {
+  const companyNames: string[] = [];
+
+  // Finding companies
+  missionData.map((el) => {
+    const str: string = el.company;
+    if (!companyNames.includes(str)) {
+      companyNames.push(el.company);
+    }
+  });
+
+  return companyNames;
+}
+
 const PieChart = ({ data: missionData }: IPieCharttData) => {
   const [data, setData] = useState<ISpaceData[]>([]);
   const [selectedCompany, setSelectedCompany] = useState<string>("SpaceX");
@@ -75,15 +90,7 @@ const PieChart = ({ data: missionData }: IPieCharttData) => {
   useEffect(() => {
     setData(missionData);
     if (missionData.length > 0) {
-      const companyNames: string[] = [];
-
-      // Finding companies
-      missionData.map((el) => {
-        const str: string = el.company;
-        if (!companyNames.includes(str)) {
-          companyNames.push(el.company);
-        }
-      });
+      const companyNames: string[] = GetCompanyList(missionData);
       setCompanyList([...companyNames]);
 
       // First company missions
@@ -93,8 +100,8 @@ const PieChart = ({ data: missionData }: IPieCharttData) => {
   }, [missionData]);
 
   return (
-    <div className="flex flex-col items-center">
-      <h1 className="my-3 font-medium">Company data based on Missions</h1>
+    <div className="flex flex-col items-center border-[1px] rounded-md bg-white">
+      <h1 className="my-3 font-medium">Company data based on Missions success rate</h1>
       <div className="my-4 flex flex-col w-[300px]">
         <div className="flex items-center gap-2 justify-between">
           <p>Select Company</p>

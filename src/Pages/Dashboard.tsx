@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { getMockData } from "../api/api";
 import DashboardTable, { ISpaceData } from "../components/Dashboard/DashboardTable";
 import PieChart from "../components/Dashboard/PieChart";
+import BarChart from "../components/Dashboard/BarChart";
 
 const Dashboard = () => {
   const [isLoading, setIsLogin] = useState<boolean>(false);
@@ -31,6 +32,7 @@ const Dashboard = () => {
           <span className="text-blue-600 font-semibold">Space Vue</span> Data
         </h1>
       </div>
+      <BarChart data={data} />
       <PieChart data={data} />
       <DashboardTable data={data} />
     </div>
