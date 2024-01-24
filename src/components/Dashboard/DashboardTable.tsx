@@ -59,7 +59,15 @@ const DashboardTable = ({ data: missionData }: IDashboardTable) => {
           width: "100%",
         }}
       >
-        {data && <AgGridReact rowData={data} columnDefs={colDefs} defaultColDef={defaultColDef} animateRows={true} />}
+        {data && (
+          <AgGridReact
+            pagination={true}
+            rowData={data}
+            columnDefs={colDefs}
+            defaultColDef={defaultColDef}
+            animateRows={true}
+          />
+        )}
       </div>
     </div>
   );
