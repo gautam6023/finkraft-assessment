@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { ISpaceData } from "./DashboardTable";
 import { DecadeData, getCosting } from "../../utils/processData";
 import { Select } from "flowbite-react";
-import { AgChartOptions, AgSunburstSeriesOptions } from "ag-charts-community";
-import { GetCompanyList } from "./PieChart";
+import { AgChartOptions } from "ag-charts-community";
 import { AgChartsReact } from "ag-charts-react";
 
 interface IBarChartForCosting {
