@@ -18,6 +18,15 @@ export interface IMissonsStatusData {
   failedMissions: SpanData[];
   successfulMissions: SpanData[];
 }
+
+type CompanyCost = {
+  company: string;
+  totalCost: number;
+};
+
+export type DecadeData = {
+  [decade: string]: CompanyCost[];
+};
 export const processData = (missions: MissionData[]): IMissonsStatusData => {
   const totalMissions: SpanData[] = [];
   const failedMissions: SpanData[] = [];
@@ -48,4 +57,28 @@ export const processData = (missions: MissionData[]): IMissonsStatusData => {
   }
 
   return { totalMissions, failedMissions, successfulMissions };
+};
+
+export const getCosting = (missions: MissionData[]): DecadeData => {
+  const decadeData: DecadeData = {};
+
+  for (let year = 1950; year < 2030; year += 10) {
+    const spanEnd = year + 9;
+    const spanLabel = `${year}-${spanEnd}`;
+    decadeData[spanLabel] = [];
+
+    missions.forEach((mission) => {
+      const missionYear = new Date(mission.date).getFullYear();
+      if (missionYear >= year && missionYear <= spanEnd) {
+        const existingCompany = decadeData[spanLabel].find((c) => c.company === mission.company);
+        if (existingCompany) {
+          existingCompany.totalCost += mission.price;
+        } else {
+          decadeData[spanLabel].push({ company: mission.company, totalCost: mission.price });
+        }
+      }
+    });
+  }
+
+  return decadeData;
 };

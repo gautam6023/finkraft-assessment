@@ -3,6 +3,7 @@ import { getMockData } from "../api/api";
 import DashboardTable, { ISpaceData } from "../components/Dashboard/DashboardTable";
 import PieChart from "../components/Dashboard/PieChart";
 import BarChart from "../components/Dashboard/BarChart";
+import BarChartForCosting from "../components/Dashboard/BarChartForCosting";
 
 const Dashboard = () => {
   const [isLoading, setIsLogin] = useState<boolean>(false);
@@ -38,6 +39,7 @@ const Dashboard = () => {
           </div>
           <BarChart data={data} />
           <PieChart data={data} />
+          <BarChartForCosting data={data} />
           <DashboardTable data={data} />
         </>
       )}

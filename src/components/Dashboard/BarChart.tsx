@@ -6,7 +6,7 @@ import { GetCompanyList } from "./PieChart";
 import { AgChartsReact } from "ag-charts-react";
 import { Select } from "flowbite-react";
 
-interface IBarCharttData {
+export interface IBarCharttData {
   data: ISpaceData[];
 }
 
