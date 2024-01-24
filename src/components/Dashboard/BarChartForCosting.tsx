@@ -59,7 +59,7 @@ const BarChartForCosting = ({ data: missionData }: IBarChartForCosting) => {
       <h1 className="my-3 font-extrabold">Space Missions Costing at 10 year span</h1>
       <div className="my-4 flex flex-col w-[300px]">
         <div className="flex items-center gap-2 justify-between">
-          <p>Select Mission Status</p>
+          <p>Select Decade</p>
           <Select
             value={selectedDecade}
             onChange={(e: React.ChangeEvent<HTMLSelectElement>) => setSelectedDecade(e.target.value)}
